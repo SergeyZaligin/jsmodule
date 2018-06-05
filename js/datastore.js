@@ -1,13 +1,17 @@
-(function (window) {
+(function (global) {
 	'use strict';
 	
-	var App = window.App || {};
+	const App = global.App || {};
 
 	function DataStore() {
-		console.log('running the DataStore function');
+		this.data = {};
 	}
 
+	DataStore.prototype.add = function(key, val) {
+		this.data[key] = val;
+	};
+
 	App.DataStore = DataStore;
-	window.App = App;
+	global.App = App;
 
 })(window);
